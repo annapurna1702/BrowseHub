@@ -1,3 +1,4 @@
 streamlit
 collections
+defaultdict
 re

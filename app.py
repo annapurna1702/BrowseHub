@@ -35,7 +35,9 @@ def boolean_retrieval(index, query, all_docs):
     elif 'not' in query:
         terms = query.split(' not ')
         if len(terms) == 2:
+            term_to_include = terms[0].strip()
             term_to_exclude = terms[1].strip()
+            result_docs = set(index.get(term_to_include, set()))
             result_docs = result_docs.difference(index.get(term_to_exclude, set()))
     else:
         result_docs = set()
